@@ -5,22 +5,20 @@
     <title>Hello World Example in React</title>
 </head>
 <body>
+    <div id="root"></div>
 
-<div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
 
-<script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script>
+        const obj = React.createElement(
+            'h1',
+            {id:'my-msg','title':'title'},
+            "Hello React"
+        )
 
-<script>
-    const obj = React.createElement(
-        'h1',
-        {id: 'my-msg', 'title':'This is my message'},
-        'Hello React!'
-    )
-
-    const root = ReactDOM.createRoot(document.getElementById('root'))
-    root.render(obj)
-</script>
-    
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(obj)
+    </script>
 </body>
 </html>

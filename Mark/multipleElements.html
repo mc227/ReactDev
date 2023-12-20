@@ -2,19 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Not Sure what the title was</title>
+    <title>Document</title>
 </head>
 <body>
     <div id="root"></div>
-    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script>
-        const retailer = React.createElement('h1',null,"Catalog")
-
-
-        
+        const obj = React.createElement('div',{id:'retailer-info'},
+            React.createElement('h1',null,"Catalog"),
+            React.createElement('ul',null,React.createElement('li',null,'cap'),React.createElement('li',null,'hoodie'),React.createElement('li',null,'shorts')),
+            React.createElement('h1',null,"Shops"),
+            React.createElement('ul',null,React.createElement('li',null,'NYC'),React.createElement('li',null,'NJ')),
+        )
         const root = ReactDOM.createRoot(document.getElementById('root'))
-        root.render(retailer)
+        root.render(obj)
     </script>
 </body>
 </html>

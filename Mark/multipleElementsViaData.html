@@ -9,17 +9,28 @@
     <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
     <script>
+        // const retailer = React.createElement('div', {id:'retailer-info'},
+        //     React.createElement('h1', null, "Catalog"),
+        //         React.createElement('ul', null,
+        //             React.createElement('li', null, "pants"),
+        //             React.createElement('li', null, "shirt"),
+        //             React.createElement('li', null, "hoodie")),
+        //     React.createElement('h1', null, "Shops"),
+        //         React.createElement('ul', null,
+        //             React.createElement('li', null, "NY"),
+        //             React.createElement('li', null, "NJ"),
+        //             React.createElement('li', null, "CT"))
+        // )
+
+        const catalog = ["pants","shirt","hoodie"]
+        const shops = ['NY', "NJ", "CT"]
+        const catalogList = React.createElement('ul', null, catalog.map((i,k)=>React.createElement('li',{key:k},i)))
+        const shopsList = React.createElement('ul', null, shops.map((i,k)=>React.createElement('li',{key:k},i)))
         const retailer = React.createElement('div', {id:'retailer-info'},
             React.createElement('h1', null, "Catalog"),
-                React.createElement('ul', null,
-                    React.createElement('li', null, "pants"),
-                    React.createElement('li', null, "shirt"),
-                    React.createElement('li', null, "hoodie")),
+                catalogList,
             React.createElement('h1', null, "Shops"),
-                React.createElement('ul', null,
-                    React.createElement('li', null, "NY"),
-                    React.createElement('li', null, "NJ"),
-                    React.createElement('li', null, "CT"))
+                shopsList
         )
 
         const root = ReactDOM.createRoot(document.getElementById('root'))

@@ -12,15 +12,23 @@
         const Catalog = ['pants', 'shirt', 'socks', 'hoodie']
         const Shops = ['New Jersey', 'Maryland']
 
-        const catalogList = React.createElement('ul', null,
-                    React.createElement('li', null,'pants'),
-                    React.createElement('li', null,'shirt'),
-                    React.createElement('li', null,'socks'),
-                    React.createElement('li', null,'hoodie'))
+        // const catalogList = React.createElement('ul', null,
+        //             React.createElement('li', null,'pants'),
+        //             React.createElement('li', null,'shirt'),
+        //             React.createElement('li', null,'socks'),
+        //             React.createElement('li', null,'hoodie'))
 
+        const catalogList = React.createElement('ul', null,
+            Catalog.map((item,i)=>React.createElement('li',{key:i},item))
+        )
+
+        // const shopsList = React.createElement('ul', null,
+        //             React.createElement('li', null,'New Jersey'),
+        //             React.createElement('li', null,'Maryland'))
+        
         const shopsList = React.createElement('ul', null,
-                    React.createElement('li', null,'New Jersey'),
-                    React.createElement('li', null,'Maryland'))
+            Shops.map((item,i)=>React.createElement('li',{key:i},item))
+        )
 
         const retailer = React.createElement('div',{id:'retailer-info'},
             React.createElement('h1',null,'Catalog'), catalogList,

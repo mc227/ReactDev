@@ -9,20 +9,22 @@
     <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
     <script>
-        const retailer = React.createElement('div',{id:'retailer-info'},
-            React.createElement('h1',null,'Catalog'),
-                React.createElement('ul', null,
+        const Catalog = ['pants', 'shirt', 'socks', 'hoodie']
+        const Shops = ['New Jersey', 'Maryland']
+
+        const catalogList = React.createElement('ul', null,
                     React.createElement('li', null,'pants'),
                     React.createElement('li', null,'shirt'),
                     React.createElement('li', null,'socks'),
-                    React.createElement('li', null,'hoodie')
-            ),
-            React.createElement('h1',null,'Shops'),
-                React.createElement('ul', null,
+                    React.createElement('li', null,'hoodie'))
+
+        const shopsList = React.createElement('ul', null,
                     React.createElement('li', null,'New Jersey'),
-                    React.createElement('li', null,'Maryland')
-            )
-        )
+                    React.createElement('li', null,'Maryland'))
+
+        const retailer = React.createElement('div',{id:'retailer-info'},
+            React.createElement('h1',null,'Catalog'), catalogList,
+            React.createElement('h1',null,'Shops'), shopsList)
         
         const root = ReactDOM.createRoot(document.getElementById('root'))
         root.render(retailer)

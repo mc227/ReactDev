@@ -5,38 +5,41 @@
     <title>multiple elements</title>
 </head>
 <body>
-    <div id="root"></div>
-    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
-    <script>
-        const Catalog = ['pants', 'shirt', 'socks', 'hoodie']
-        const Shops = ['New Jersey', 'Maryland']
 
-        // const catalogList = React.createElement('ul', null,
-        //             React.createElement('li', null,'pants'),
-        //             React.createElement('li', null,'shirt'),
-        //             React.createElement('li', null,'socks'),
-        //             React.createElement('li', null,'hoodie'))
+<div id="root"></div>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script>
+    const products = ['pants', 'shirt', 'socks', 'hoodie']
+    const shops = ['New Jersey', 'Maryland']
 
-        const catalogList = React.createElement('ul', null,
-            Catalog.map((item,i)=>React.createElement('li',{key:i},item))
-        )
 
-        // const shopsList = React.createElement('ul', null,
-        //             React.createElement('li', null,'New Jersey'),
-        //             React.createElement('li', null,'Maryland'))
+    class ItemList extends React.component{
+        render() {
+            return React.createElement(
+                'ul', 
+                null, 
+                this.props.items.map((item,i) => React.createElement('li',{key:i},item))
+            )
+        }
+    }
+
+
+    class App extends React.component {
+        render(){
+            return React.createElement('div',null,
+                React.createElement('h1', null, 'Catalog'),
+                React.createElement(ItemList, {items:products}, null),
+                React.createElement('h1', null, 'Shops'),
+                React.createElement(ItemList, {items: shops}, null)
+            )
+        }
+    }
         
-        const shopsList = React.createElement('ul', null,
-            Shops.map((item,i)=>React.createElement('li',{key:i},item))
-        )
-
-        const retailer = React.createElement('div',{id:'retailer-info'},
-            React.createElement('h1',null,'Catalog'), catalogList,
-            React.createElement('h1',null,'Shops'), shopsList)
-        
-        const root = ReactDOM.createRoot(document.getElementById('root'))
-        root.render(retailer)
-    </script>
+    const app = React.createElement(App, null, null)
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(app)
+</script>
     
 </body>
 </html>

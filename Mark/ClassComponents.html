@@ -2,44 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>multiple elements</title>
+    <title>Again</title>
 </head>
 <body>
-
-<div id="root"></div>
-<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script>
-    const products = ['pants', 'shirt', 'socks', 'hoodie']
-    const shops = ['New Jersey', 'Maryland']
-
-
-    class ItemList extends React.component{
-        render() {
-            return React.createElement(
-                'ul', 
-                null, 
-                this.props.items.map((item,i) => React.createElement('li',{key:i},item))
-            )
-        }
-    }
-
-
-    class App extends React.component {
-        render(){
-            return React.createElement('div',null,
-                React.createElement('h1', null, 'Catalog'),
-                React.createElement(ItemList, {items:products}, null),
-                React.createElement('h1', null, 'Shops'),
-                React.createElement(ItemList, {items: shops}, null)
-            )
-        }
-    }
-        
-    const app = React.createElement(App, null, null)
-    const root = ReactDOM.createRoot(document.getElementById('root'))
-    root.render(app)
-</script>
     
 </body>
 </html>

@@ -32,8 +32,27 @@
             React.createElement('h1',null,"Catalog"), catalogList,
             React.createElement('h1',null,"Shops"), shopList
         )
+
+        class ItemList extends React.Component{
+            render(){
+                return React.createElement('ul',null,
+                this.props.items.map((item,i) => React.createElement('li', {key:i}, item)))
+            }
+        }
+        class App extends React.Component{
+            render(){
+                return React.createElement('div',null,
+                React.createElement('h1', null, "Catalog"),
+                React.createElement('ul', null, React.createElement(ItemList,{items:catalog},null)),
+                React.createElement('h1', null, "Shops"),
+                React.createElement('ul', null, React.createElement(ItemList,{items:shop},null))
+                )
+            }
+        }
+
+        const app = React.createElement(App,null,null)
         const root = ReactDOM.createRoot(document.getElementById('root'))
-        root.render(retailer)
+        root.render(app)
     </script>
 </body>
 </html>

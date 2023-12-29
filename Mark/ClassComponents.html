@@ -9,17 +9,30 @@
     <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
     <script>
+        const products = [
+            'product 1',
+            'product 2',
+            'product 3',
+            'product 4',
+            'product 5',
+            'product 6'
+        ]
+
+        const shops = [
+            'shop 1',
+            'shop 2',
+            'shop 3'
+        ]
+
+        const productList = React.createElement('ul', null, 
+        products.map((item, i) => React.createElement('li',{key:i},item)))
+        
+        const shopList = React.createElement('ul', null, 
+        shops.map((item, i) => React.createElement('li',{key:i},item)))
+
         const retailer = React.createElement('div', {id:'retailer-info'},
-        React.createElement('h1', null, 'Catalog'),
-            React.createElement('ul', null, 
-                React.createElement('li', null, "product 1"),
-                React.createElement('li', null, "product 2"),
-                React.createElement('li', null, "product 3")),
-        React.createElement('h1', null, 'Shops'), 
-        React.createElement('ul', null, 
-                React.createElement('li', null, "shop 1"),
-                React.createElement('li', null, "shop 2"),
-                React.createElement('li', null, "shop 3")))
+        React.createElement('h1', null, 'Catalog'), productList,
+        React.createElement('h1', null, 'Shops'), shopList)
         
         const root = ReactDOM.createRoot(document.getElementById('root'))
         root.render(retailer)

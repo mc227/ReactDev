@@ -30,12 +30,31 @@
         const shopList = React.createElement('ul', null, 
         shops.map((item, i) => React.createElement('li',{key:i},item)))
 
+        class ItemList extends React.Component{
+            render(){
+                return React.createElement('ul',null,
+                this.props.items.map((item,i) => React.createElement('li',{key:i},item)))
+            }
+        }
+
         const retailer = React.createElement('div', {id:'retailer-info'},
         React.createElement('h1', null, 'Catalog'), productList,
         React.createElement('h1', null, 'Shops'), shopList)
+
+        class App extends React.Component{
+            render() {
+                return React.createElement('div', null, 
+                React.createElement('h1', null, 'Catalog'),
+                React.createElement(ItemList, {items:products},null),
+                React.createElement('h1', null, 'Shops'),
+                React.createElement(ItemList, {items:shops},null),
+                )
+            }
+        }
         
+        const app = React.createElement(App, null, null)
         const root = ReactDOM.createRoot(document.getElementById('root'))
-        root.render(retailer)
+        root.render(app)
     </script>
     
 

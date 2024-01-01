@@ -32,29 +32,44 @@
             shop.map((item,i) => React.createElement('li', {key:i}, item))
         )
 
-        class ItemList extends React.Component{
-            render(){
-                return React.createElement('ul', null,
-                this.props.items.map((item,i)=>React.createElement('li',{key:i},item)))
-            }
+        // class ItemList extends React.Component{
+        //     render(){
+        //         return React.createElement('ul', null,
+        //         this.props.items.map((item,i)=>React.createElement('li',{key:i},item)))
+        //     }
+        // }
+
+        function ItemList(props){
+            return (
+                React.createElement('ul', null,
+                props.items.map((item,i)=>React.createElement('li',{key:i},item)))
+            )
         }
 
-        class App extends React.Component{
-            render(){
-                return React.createElement('div', null,
+        // class App extends React.Component{
+        //     render(){
+        //         return React.createElement('div', null,
+        //         React.createElement('h1',null,"Catalog"),
+        //         React.createElement(ItemList,{items:product},null),
+        //         React.createElement('h1',null,'Shops'),
+        //         React.createElement(ItemList,{items:shop},null))
+        //     }
+        // }
+
+        function App(){
+            return (React.createElement('div', null,
                 React.createElement('h1',null,"Catalog"),
                 React.createElement(ItemList,{items:product},null),
                 React.createElement('h1',null,'Shops'),
-                React.createElement(ItemList,{items:shop},null))
-            }
+                React.createElement(ItemList,{items:shop},null)))
         }
 
-        const retailer = React.createElement('div', {id:'retailer-info'},
-            React.createElement('h1', null, "Catalog"),
-                productList,
-            React.createElement('h1', null, "Shops"),
-                shopList
-        )
+        // const retailer = React.createElement('div', {id:'retailer-info'},
+        //     React.createElement('h1', null, "Catalog"),
+        //         productList,
+        //     React.createElement('h1', null, "Shops"),
+        //         shopList
+        // )
 
         const app = React.createElement(App, null, null)
 
